@@ -1,7 +1,8 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import Homepage from './pages/Homepage/Homepage'
+import HomePage from './pages/Homepage/Homepage'
+import CategoryPage from './pages/Category/Category'
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import './App.scss';
@@ -12,11 +13,11 @@ const App = () => {
     dispatch(fetchProductsStart());
 
     return (
-        <div className="App">
+        <div className='App'>
             <Header />
             <Switch>
-                <Route exact path="/" component={Homepage} />
-                <Route exact path="/:category" component={Homepage} />
+                <Route exact path='/' component={HomePage} />
+                <Route path='/:category' component={CategoryPage} />
             </Switch>
             <Footer />
         </div >

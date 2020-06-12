@@ -4,11 +4,11 @@ import Slogan from '../../components/Slogan/Slogan'
 import ProductRange from '../../components/ProductRange/ProductRange';
 import './Homepage.scss';
 
-const Homepage = () => (
-    <div className="Homepage">
+const HomePage = () => (
+    <div className='HomePage'>
         <Slider />
         <Slogan />
         <ProductRange />
     </div>
 );
-export default Homepage;
+export default HomePage;

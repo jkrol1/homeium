@@ -4,9 +4,9 @@ import { ReactComponent as ShoppingCartSVG } from '../../assets/shopping-cart.sv
 
 const CartIcon = () => {
     return (
-        <div className="CartIcon">
+        <div className='CartIcon'>
             <ShoppingCartSVG />
-            <span className="CartIcon__number-of-items">15</span>
+            <span className='CartIcon__number-of-items'>15</span>
         </div>
     );
 };

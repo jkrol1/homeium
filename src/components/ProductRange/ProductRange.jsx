@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 import ProductCategory from '../ProductCategory/ProductCategory';
 import { selectProductCategories } from '../../redux/products/productsSelectors';
 import './ProductRange.scss';

@@ -4,8 +4,8 @@ import './Header.scss';
 
 const Header = () => {
     return (
-        <header className="Header">
-            <div className="fixed-container">
+        <header className='Header'>
+            <div className='fixed-container'>
                 <Navigation />
             </div>
         </header>
