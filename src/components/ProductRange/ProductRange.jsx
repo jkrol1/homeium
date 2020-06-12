@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import ProductCategory from '../ProductCategory/ProductCategory';
 import { selectProductCategories } from '../../redux/products/productsSelectors';
 import './ProductRange.scss';
@@ -16,7 +16,8 @@ const ProductRange = () => {
     else {
         return (
             <main className='ProductRange'>
-                {Object.keys(productCategories).map(productCategory => <ProductCategory {...productCategories[productCategory]} />)}
+                {Object.keys(productCategories).map((productCategory, index) =>
+                    <ProductCategory key={`${productCategory}_${index}`} {...productCategories[productCategory]} />)}
             </main>
         );
     }

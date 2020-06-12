@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { Switch, Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import { useDispatch } from "react-redux";
+import { Switch, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage/Homepage'
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -16,7 +16,7 @@ const App = () => {
             <Header />
             <Switch>
                 <Route exact path="/" component={Homepage} />
-                <Route path="/:category" />
+                <Route exact path="/:category" component={Homepage} />
             </Switch>
             <Footer />
         </div >
