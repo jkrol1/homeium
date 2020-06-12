@@ -1,0 +1,12 @@
+.SocialMedia {
+
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 0.5rem;
+
+    &__icon {
+        height: 3rem;
+        width: 3rem;
+        margin: 0.5rem;
+    }
+}

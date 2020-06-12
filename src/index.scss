@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto&display=swap");
+
+:root {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "roboto",
+        "Balsamiq Sans",
+        "arial";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+
+ul {
+    list-style-type: none;
+}

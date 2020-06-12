@@ -1,0 +1,13 @@
+.CartIcon {
+    width: 3.5rem;
+    position: relative;
+
+    &__number-of-items {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        left: 0;
+        top: 34%;
+        font-family: "Balsamiq Sans";
+    }
+}

@@ -1,0 +1,11 @@
+.Slider {
+    border-bottom: 0.1rem rgba(0, 0, 0, .1) solid;
+
+    &__image {
+        display: block;
+        height: 35rem;
+        background-image: url("https://images.unsplash.com/photo-1573866926487-a1865558a9cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80");
+        background-size: cover;
+        background-position: center;
+    }
+}
