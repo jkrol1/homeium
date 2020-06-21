@@ -1,5 +1,5 @@
 import React from 'react';
-import CollectionPreviewItem from '../CollectionPreviewItem/CollectionPreviewItem';
+import CollectionItem from '../CollectionItem/CollectionItem';
 import './CollectionPreview.scss';
 
 const CollectionPreview = ({ collectionItems }) => {
@@ -9,9 +9,9 @@ const CollectionPreview = ({ collectionItems }) => {
                 Collection Preview
             </h3>
             <a className='CollectionPreview__link'>View more</a>
-            <div className='item-container'>
-                {collectionItems.slice(0, 10).map(({ imageUrl, name, price }, index) =>
-                    <CollectionPreviewItem key={`${name}_${index}`} item={{ imageUrl, name, price }} />)}
+            <div className='CollectionPreview__items'>
+                {collectionItems.slice(0, 10).map((item, index) =>
+                    <CollectionItem key={`${item.name}_${index}`} item={item} />)}
             </div>
         </section>
     )

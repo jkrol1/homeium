@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     margin-top: 2.5rem;
 
     &__heading {
@@ -20,11 +20,14 @@
         font-weight: bold;
     }
 
-    .item-container {
-        display: flex;
+    &__items {
+        display: grid;
+        height: 30rem;
+        margin: 2.5rem 0;
         overflow-x: scroll;
-        margin-top: 2rem;
-        margin-bottom: 1.5rem;
+        grid-template-columns: repeat(10, 14.5rem);
+        grid-template-rows: 28rem;
+        column-gap: 2rem;
         -ms-overflow-style: none;
 
         &::-webkit-scrollbar {
