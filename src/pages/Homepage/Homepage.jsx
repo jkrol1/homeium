@@ -2,7 +2,9 @@ import React from 'react';
 import Slider from '../../components/Slider/Slider';
 import Slogan from '../../components/Slogan/Slogan'
 import ProductRange from '../../components/ProductRange/ProductRange';
+import WithSpinner from '../../components/WithSpinner/WithSpinner';
 import './Homepage.scss';
+
 
 const HomePage = () => (
     <div className='HomePage'>
@@ -11,4 +13,4 @@ const HomePage = () => (
         <ProductRange />
     </div>
 );
-export default HomePage;
+export default WithSpinner(HomePage);
