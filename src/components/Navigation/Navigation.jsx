@@ -16,7 +16,7 @@ const Navigation = () => (
                 <a className='Navigation__link'>Sign In</a>
             </li>
             <li className='Navigation__list-item'>
-                <CartIcon />
+                <CartIcon content={15} />
             </li>
         </ul>
     </nav>
