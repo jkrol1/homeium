@@ -1,0 +1,79 @@
+.FilterPanel {
+    display: flex;
+    width: 100vw;
+    height: 35rem;
+    position: absolute;
+    top: 5rem;
+    left: -1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+    z-index: 1;
+    touch-action: none;
+
+    &__close-panel-symbol {
+        position: absolute;
+        top: 2rem;
+        right: 1.5rem;
+        font-size: 2.5rem;
+
+    }
+
+    &__filter-type {
+        font-size: 2rem;
+        font-weight: normal;
+    }
+
+    &__price-filter-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__range-number-inputs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 4rem 0;
+    }
+
+    &__dash {
+        margin: 0 2rem;
+        font-size: 3rem;
+        font-weight: lighter;
+    }
+}
+
+.input-range {
+    width: 70%;
+
+    &__track {
+        height: 0.5rem
+    }
+
+    &__slider {
+        height: 2rem;
+        width: 2rem;
+        margin-top: -1.25rem;
+    }
+
+    &__label--min,
+    &__label--max {
+        display: none;
+    }
+
+    &__label--value {
+        top: -3.2rem;
+        font-size: 1.2rem;
+        color: black;
+    }
+
+    &__label-container {
+        left: -15%;
+    }
+}

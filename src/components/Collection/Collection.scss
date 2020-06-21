@@ -1,0 +1,18 @@
+.Collection {
+    display: grid;
+    position: relative;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+    margin: 4.5rem 0 1rem;
+
+    &--multiple-columns {
+        grid-template-columns: repeat(auto-fit, minmax(14.5rem, 2fr));
+        column-gap: 1rem;
+    }
+
+    &--filters-window-on {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}

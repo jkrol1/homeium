@@ -1,0 +1,49 @@
+.FiltersMenu {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    position: relative;
+    margin-top: 7rem;
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 18rem;
+    }
+
+    &__layout-icon {
+        display: flex;
+        justify-self: right;
+        justify-content: center;
+        align-items: center;
+        height: 2.65rem;
+        width: 2.65rem;
+        margin-right: 0.5rem;
+        cursor: pointer;
+    }
+
+    &__clear-filters {
+        position: absolute;
+        display: none;
+        top: 5rem;
+        left: 0;
+        cursor: pointer;
+
+        &--show {
+            display: block;
+        }
+    }
+
+    &__clear-filters-text {
+        font-size: 1.5rem;
+    }
+
+    .separation-line {
+        width: 30%;
+        position: absolute;
+        top: -4.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom: 0.1rem rgba(0, 0, 0, .2) solid;
+    }
+}

@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'SignPainter-HouseScript';
+    src: url(../../assets/SignPainter-HouseScript.ttf);
+}
+
+.CategoryPage {
+    margin: 3rem 1rem 0 1rem;
+
+    &__heading {
+        font-size: 3.5rem;
+        text-align: center;
+        font-weight: normal;
+        font-family: 'SignPainter-HouseScript';
+    }
+}

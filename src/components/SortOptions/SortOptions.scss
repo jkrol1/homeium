@@ -1,0 +1,20 @@
+.SortOptions {
+
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+
+    &__sort-option {
+        font-size: 2rem;
+        padding: 0.8rem;
+        border-bottom: 0.5rem solid transparent;
+
+        &--selected-option {
+            border-bottom: 0.5rem solid #3f51b5;
+            border-radius: 0.1rem;
+        }
+    }
+}
