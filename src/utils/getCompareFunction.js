@@ -1,5 +1,5 @@
 const getCompareFunction = (property, order) => {
-    if (order === 'descending') {
+    if (order === 'ascending') {
         const compare = (a, b) => {
 
             let comparison = 0;
