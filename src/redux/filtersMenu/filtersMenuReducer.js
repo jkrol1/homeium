@@ -2,10 +2,11 @@ import filtersMenuActionTypes from './filtersMenuActionTypes';
 
 const INITIAL_STATE = {
     isSingleColumnLayout: true,
-    showFiltersWindow: false,
+    showFiltersPanel: false,
     showClearFiltersOption: false,
+    showSortPanel: false,
     priceFilter: { minPriceThreshold: 0, maxPriceThreshold: 1 },
-    sortRule: { sortBy: 'name', order: 'ascending' }
+    sortRule: { sortBy: 'price', order: 'ascending' }
 };
 
 const filtersMenuReducer = (state = INITIAL_STATE, action) => {
@@ -15,10 +16,15 @@ const filtersMenuReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 isSingleColumnLayout: !state['isSingleColumnLayout']
             };
-        case filtersMenuActionTypes.TOGGLE_FILTERS_WINDOW:
+        case filtersMenuActionTypes.TOGGLE_FILTERS_PANEL:
             return {
                 ...state,
-                showFiltersWindow: !state['showFiltersWindow']
+                showFiltersPanel: !state['showFiltersPanel']
+            };
+        case filtersMenuActionTypes.TOGGLE_SORT_PANEL:
+            return {
+                ...state,
+                showSortPanel: !state['showSortPanel']
             };
         case filtersMenuActionTypes.TOGGLE_CLEAR_FILTERS_OPTION:
             return {
@@ -39,7 +45,7 @@ const filtersMenuReducer = (state = INITIAL_STATE, action) => {
         case filtersMenuActionTypes.CHANGE_SORT_RULE:
             return {
                 ...state,
-                priceFilter: { ...state.sortRule, sortBy: action.payload.sortBy, order: action.payload.order }
+                sortRule: { ...state.sortRule, sortBy: action.payload.sortBy, order: action.payload.order }
             };
         default:
             return state;

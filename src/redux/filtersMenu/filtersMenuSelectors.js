@@ -7,9 +7,9 @@ export const selectIsSingleColumnLayout = createSelector(
     filtersMenu => filtersMenu.isSingleColumnLayout
 );
 
-export const selectShowFiltersWindow = createSelector(
+export const selectShowFiltersPanel = createSelector(
     [selectFiltersMenu],
-    filtersMenu => filtersMenu.showFiltersWindow
+    filtersMenu => filtersMenu.showFiltersPanel
 )
 
 export const selectShowClearFiltersOption = createSelector(
@@ -21,3 +21,13 @@ export const selectPriceFilter = createSelector(
     [selectFiltersMenu],
     filtersMenu => filtersMenu.priceFilter
 );
+
+export const selectSortRule = createSelector(
+    [selectFiltersMenu],
+    filtersMenu => filtersMenu.sortRule
+);
+
+export const selectShowSortPanel = createSelector(
+    [selectFiltersMenu],
+    filtersMenu => filtersMenu.showSortPanel
+)
