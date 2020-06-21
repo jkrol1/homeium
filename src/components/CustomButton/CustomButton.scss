@@ -1,17 +1,15 @@
 .CustomButton {
-    background-color: white;
+    background-color: transparent;
     border: none;
     cursor: pointer;
     border-top: 0.25rem solid transparent;
 
     &__content {
         display: flex;
-        width: 10rem;
-        height: 4.5rem;
-        padding: 0.5rem;
+        height: 4rem;
         justify-content: space-evenly;
         align-items: center;
-        font-size: 1.9rem;
+        font-size: 2.1rem;
         pointer-events: none;
     }
 
@@ -27,4 +25,10 @@
     &--with-border {
         border: 0.1rem solid black;
     }
+
+    &--large-with-border {
+        width: 15rem;
+        border: 0.1rem solid black;
+    }
+
 }
