@@ -4,6 +4,10 @@
     flex-direction: column;
     min-width: 14.5rem;
 
+    &--hide-box-shadow {
+        box-shadow: none;
+    }
+
     &--single-column {
         display: grid;
         max-width: 40rem;
@@ -62,21 +66,8 @@
     &__available-color {
         height: 2rem;
         width: 2rem;
-        background-color: #39CCCC;
         border-radius: 50%;
         display: inline-block;
-
-        &--maroon {
-            background-color: #85144b;
-        }
-
-        &--orange {
-            background-color: orange;
-        }
-
-        &--navy {
-            background-color: #001f3f;
-        }
     }
 
 }

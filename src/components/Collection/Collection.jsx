@@ -4,7 +4,6 @@ import { selectIsSingleColumnLayout, selectSortRule } from '../../redux/filtersM
 import { selectFilteredProducts } from '../../redux/products/productsSelectors';
 import { selectPriceFilter, selectShowFiltersPanel, selectShowSortPanel } from '../../redux/filtersMenu/filtersMenuSelectors';
 import CollectionItem from '../CollectionItem/CollectionItem';
-import CartIcon from '../CartIcon/CartIcon';
 import './Collection.scss';
 
 const Collection = ({ category }) => {
@@ -26,12 +25,8 @@ const Collection = ({ category }) => {
                 showBtn
                 modifier='large-with-border'
                 isSingleColumnLayout={isSingleColumnLayout}
-                btnContent={
-                    <>
-                        <CartIcon content={'+1'} />
-                        <p style={{ 'font-size': '1.7rem' }}>Add to cart</p>
-                    </>
-                } />) : ''}
+                showColorsInfo
+            />) : ''}
         </section>);
 };
 
