@@ -1,0 +1,38 @@
+.ProductColorOptions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__heading {
+        width: 100%;
+        font-size: 1.7rem;
+        font-weight: normal;
+    }
+
+    .colors-container {
+        display: flex;
+        margin-top: 3rem;
+        width: 80%;
+        max-width: 20rem;
+        justify-content: space-evenly;
+    }
+
+    &__color-option {
+        height: 3.5rem;
+        width: 3.5rem;
+        position: relative;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    &__selected-option {
+        position: absolute;
+        top: 125%;
+        width: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom: 0.6rem solid #3F51B5;
+        transition: 0.5s;
+    }
+}

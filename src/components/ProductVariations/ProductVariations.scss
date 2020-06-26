@@ -1,0 +1,9 @@
+.ProductVariations {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 1rem 5rem;
+
+    .CustomButton {
+        align-self: center;
+    }
+}
