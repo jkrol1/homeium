@@ -1,6 +1,6 @@
 import React from 'react';
 import './InputField.scss';
 
-const InputField = (props) => <input className='InputField' {...props} />;
+const InputField = ({ modifier, ...otherProps }) => <input className={`InputField ${modifier ? 'InputField--' + modifier : ''}`} {...otherProps} />;
 
 export default InputField;
