@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'SignPainter-HouseScript';
+    src: url(../../assets/SignPainter-HouseScript.ttf);
+}
+
+.Cart {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    background-color: white;
+    overflow: scroll;
+
+    &__close-panel-symbol {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .separation-line {
+        width: 30%;
+        position: absolute;
+        top: 10rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom: 0.1rem rgba(0, 0, 0, .2) solid;
+    }
+
+    &__heading {
+        position: relative;
+        font-size: 4rem;
+        font-family: "SignPainter-HouseScript";
+        font-weight: normal;
+        text-align: center;
+
+
+    }
+}
