@@ -31,6 +31,12 @@ const cartReducer = (state = INITIAL_STATE, action) => {
                 cartItems: {}
             };
 
+        case cartActionTypes.TOGGLE_CART_PANEL:
+            return {
+                ...state,
+                showCartPanel: !state.showCartPanel
+            };
+
         default:
             return state
 

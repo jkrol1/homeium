@@ -1,16 +1,16 @@
 export const addItem = (cartItems, item) => {
 
-    const cartItem = `${item.id}_${item.color}`;
+    const cartItem = `${item.id}_${item.selectedColor}`;
 
     if (cartItems[cartItem]) {
         return {
             ...cartItems,
-            cartItem: { ...cartItem, quantity: cartItem.quantity + 1 }
+            [cartItem]: { ...cartItems[cartItem], quantity: cartItems[cartItem].quantity + (item.quantity ? item.quantity : 1) }
         };
     } else {
         return {
             ...cartItems,
-            cartItem: item
+            [cartItem]: item
         };
     };
 };
@@ -27,7 +27,7 @@ export const removeItem = (cartItems, item) => {
 
         return {
             ...cartItems,
-            cartItem: { ...cartItem, quantity: cartItem.quantity - 1 }
+            [cartItem]: { ...cartItems[cartItem], quantity: cartItems[cartItem].quantity - 1 }
         };
 
     };
@@ -37,15 +37,13 @@ export const clearItem = (cartItems, item) => {
 
     const cartItem = `${item.id}_${item.color}`;
 
-    if (cartItems[cartItem].quantity === 1) {
+    delete cartItems[cartItem];
 
-        delete cartItems[cartItem];
-
-        return {
-            ...cartItems
-        };
-    }
+    return {
+        ...cartItems
+    };
 };
+
 
 
 

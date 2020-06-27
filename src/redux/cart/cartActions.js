@@ -19,3 +19,7 @@ export const clearItem = (itemId) => ({
     payload: itemId
 });
 
+export const toggleCartPanel = () => ({
+    type: cartActionTypes.TOGGLE_CART_PANEL
+});
+
