@@ -17,11 +17,11 @@ export const addItem = (cartItems, item) => {
 
 export const removeItem = (cartItems, item) => {
 
-    const cartItem = `${item.id}_${item.color}`;
+    const cartItem = `${item.id}_${item.selectedColor}`;
 
     if (cartItems[cartItem].quantity === 1) {
 
-        clearItem();
+        return clearItem(cartItems, item);
 
     } else {
 
@@ -35,7 +35,7 @@ export const removeItem = (cartItems, item) => {
 
 export const clearItem = (cartItems, item) => {
 
-    const cartItem = `${item.id}_${item.color}`;
+    const cartItem = `${item.id}_${item.selectedColor}`;
 
     delete cartItems[cartItem];
 
