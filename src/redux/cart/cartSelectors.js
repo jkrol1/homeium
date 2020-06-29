@@ -26,3 +26,18 @@ export const selectNumberOfCartItems = createSelector(
     }
 );
 
+export const selectCartValue = createSelector(
+    [selectCartItems],
+    cartItems => {
+
+        let cartValue = 0;
+
+        Object.keys(cartItems).forEach(cartItem => {
+            cartValue += cartItems[cartItem].quantity * cartItems[cartItem].price
+        })
+
+        return cartValue;
+    }
+);
+
+
