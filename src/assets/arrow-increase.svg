@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 13.503 23.619">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="23.619" height="13.503" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repeat_Grid_1" data-name="Repeat Grid 1" transform="translate(0 23.619) rotate(-90)" clip-path="url(#clip-path)">
+    <g transform="translate(845 985)">
+      <path id="Icon_ionic-ios-arrow-up" data-name="Icon ionic-ios-arrow-up" d="M18,15.321l8.93,8.937a1.688,1.688,0,1,0,2.384-2.391L19.2,11.742a1.685,1.685,0,0,0-2.327-.049L6.68,21.86a1.688,1.688,0,0,0,2.384,2.391Z" transform="translate(-815.194 -960.246) rotate(180)" fill="#3f51b5"/>
+    </g>
+  </g>
+</svg>

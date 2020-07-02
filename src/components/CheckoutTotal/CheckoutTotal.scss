@@ -1,0 +1,9 @@
+.CheckoutTotal {
+    align-self: flex-end;
+    margin-bottom: 3rem;
+
+    &__value {
+        font-size: 2.2rem;
+        font-weight: bold;
+    }
+}

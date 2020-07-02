@@ -1,0 +1,50 @@
+.CheckoutItem {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 14rem;
+    justify-items: center;
+    align-items: center;
+    box-shadow: 0.5rem 0.5rem 1rem rgb(214, 210, 210);
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+
+    .name-color-container {
+        display: flex;
+        padding: 0.5rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    &__color-option {
+        height: 2.5rem;
+        width: 2.5rem;
+        padding: 0.5rem;
+        margin-top: 1rem;
+        border-radius: 50%;
+    }
+
+    .icon-container {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+
+    .quantity-container {
+        display: flex;
+        padding: 0.5rem;
+        align-items: center;
+    }
+
+    &__text-value {
+        font-size: 1.6rem;
+        padding: 0.2rem;
+        word-break: break-all;
+    }
+}
