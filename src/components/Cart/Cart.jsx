@@ -37,7 +37,7 @@ const Cart = () => {
                         e.preventDefault();
                         dispatch(toggleCartPanel());
                     }}
-                        content={<Link to='/checkout'>Go to checkout</Link>}
+                        content={<Link className='CustomButton__link' to='/checkout'>Go to checkout</Link>}
                         modifier='large-with-border' />
                 </>) : <EmptyCartInfo text='There are no items in your shopping cart' />
             }
