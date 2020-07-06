@@ -9,8 +9,10 @@ const validateEmailFieldSignIn = ({ email }, errors) => {
         email: 'Email address is invalid'
     }
 
+    if (errors.email) delete errors.email;
+
     return {
-        ...errors, email: null
+        ...errors,
     };
 };
 
@@ -23,8 +25,10 @@ const validatePasswordFieldSignIn = ({ password }, errors) => {
         password: 'Password is required'
     }
 
+    if (errors.password) delete errors.password;
+
     return {
-        ...errors, password: null
+        ...errors
     };
 };
 
@@ -44,8 +48,10 @@ const validateEmailFieldSignUp = ({ email }, errors) => {
         email: 'Email address is invalid'
     }
 
+    if (errors.email) delete errors.email;
+
     return {
-        ...errors, email: null
+        ...errors
     };
 };
 
@@ -63,8 +69,10 @@ const validatePasswordFieldSignUp = ({ password }, errors) => {
         password: 'Password must be 6 or more characters'
     }
 
+    if (errors.password) delete errors.password;
+
     return {
-        ...errors, password: null
+        ...errors
     };
 };
 
@@ -77,8 +85,10 @@ const validatePasswordConfirmationField = ({ password, passwordConfirmation }, e
         passwordConfirmation: 'Your password and confirmation password do not match'
     }
 
+    if (errors.passwordConfirmation) delete errors.passwordConfirmation;
+
     return {
-        ...errors, passwordConfirmation: null
+        ...errors
     };
 }
 

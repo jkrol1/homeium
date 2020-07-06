@@ -1,9 +1,24 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
+
+// Helper function for creating initialTouchedObject
+
+const createInitialTouchedObject = (initialValues) => {
+
+    let initialTouchedObject = {};
+
+    Object.keys(initialValues).forEach(key => {
+        initialTouchedObject[key] = false;
+    });
+
+    return initialTouchedObject;
+};
+
 
 const useForm = (initialValues, validationFunctions, onSubmit) => {
 
     const [values, setValues] = useState(initialValues || {});
     const [errors, setErrors] = useState({});
+    const [touched, setTouched] = useState(createInitialTouchedObject(initialValues) || {});
 
     const handleChange = (e) => {
         e.persist();
@@ -11,23 +26,36 @@ const useForm = (initialValues, validationFunctions, onSubmit) => {
     }
 
     const handleOnBlur = (e) => {
-        const { name } = e.target;
-        setErrors(validationFunctions[name](values, errors));
+        e.persist();
+        setTouched({ ...touched, [e.target.name]: true });
+        setErrors(validationFunctions[e.target.name](values, errors));
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (Object.keys(errors).length === 0) onSubmit();
+        if (Object.keys(errors).length === 0 && !Object.values(touched).includes(false)) onSubmit();
     }
+
+    const handleKeyDown = (e) => {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            e.target.blur();
+            const form = e.target.form;
+            const index = Array.prototype.indexOf.call(form, e.target);
+            form.elements[index + 1].focus();
+        };
+    };
 
     return {
         values,
         errors,
+        touched,
         handleChange,
         handleOnBlur,
-        handleSubmit
+        handleSubmit,
+        handleKeyDown
     };
 
-}
+};
 
 export default useForm;
