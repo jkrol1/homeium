@@ -2,11 +2,12 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    height: 5rem;
     border-top: 0.25rem solid transparent;
 
     &__content {
+        height: 5rem;
         display: flex;
-        height: 4.5rem;
         justify-content: space-evenly;
         align-items: center;
         font-size: 1.9rem;
@@ -38,4 +39,13 @@
         border: 0.1rem solid black;
     }
 
+    &--google {
+        width: 100%;
+        background-color: rgb(66, 133, 244);
+    }
+
+    &--parent-width-with-border {
+        width: 100%;
+        border: 0.1rem solid black;
+    }
 }
