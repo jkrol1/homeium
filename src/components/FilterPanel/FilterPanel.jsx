@@ -99,6 +99,7 @@ const FilterPanel = ({ showClearFiltersOption, category, toggleFiltersPanel, fil
                                 }
                             }
                         }}
+                        modifier='tight'
                         value={numericMinInput}
                     />
 
@@ -125,6 +126,7 @@ const FilterPanel = ({ showClearFiltersOption, category, toggleFiltersPanel, fil
                                 }
                             }
                         }}
+                        modifier='tight'
                         value={numericMaxInput}
                     />
                 </div>
