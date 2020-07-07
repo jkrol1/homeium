@@ -1,0 +1,36 @@
+.SignInSignUpChoice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    &__choices {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    &__choice {
+
+        padding: 1rem;
+        font-size: 2rem;
+        border-top: 0.25rem solid transparent;
+        font-weight: bold;
+        cursor: pointer;
+
+        &--selected {
+            border-top: 0.25rem solid #3f51b5;
+        }
+    }
+
+    &__forms {
+        display: flex;
+        width: 100%;
+        margin: 3rem 0;
+        justify-content: center;
+        align-content: center;
+
+    }
+}
