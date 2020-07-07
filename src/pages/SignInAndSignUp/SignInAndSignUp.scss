@@ -1,0 +1,12 @@
+.SignInAndSignUpPage {
+    display: flex;
+    padding: 3rem 2rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    &__google-info {
+        margin: 1.5rem 0;
+        font-size: 1.6rem;
+    }
+}
