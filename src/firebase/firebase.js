@@ -13,7 +13,9 @@ const config = {
     appId: '1:471960765748:web:35d66329d4a721e06c1161',
     measurementId: 'G-EL81L3BV6C'
 }
+
 // Initialize firestore
+
 firebase.initializeApp(config);
 
 const db = firebase.firestore();
@@ -31,7 +33,7 @@ export const insertItemsToFirestore = (productData) => {
             console.log('Document successfully written!');
         })
         .catch(function (error) {
-            console.error('Error writing document: ', error);
+            console.error('Error while writing document: ', error);
         });
 };
 
@@ -47,7 +49,50 @@ export const transformProductData = (response) => {
     return products;
 };
 
+export const getUserProfile = async (userAuth, additionalData) => {
+
+    // Return if user provided uncorrect credentials
+
+    if (!userAuth) return;
+
+    const userRef = db.doc(`users/${userAuth.uid}`);
+    const snapshot = await userRef.get();
+
+    // Create a user profile document if it has not already been created
+
+    if (!snapshot.exists) {
+        const { displayName, email } = userAuth;
+        const createdAt = new Date();
+        try {
+            await userRef.set({
+                displayName,
+                email,
+                createdAt,
+                ...additionalData
+            });
+        } catch (error) {
+            console.log('Error during user creation', error.message);
+        }
+    }
+
+    return userRef;
+};
+
+export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+        const unsubscribe = auth.onAuthStateChanged(userAuth => {
+            unsubscribe();
+            resolve(userAuth);
+        }, reject);
+    });
+};
+
+// Add option to sign in with google popup
+
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
+
+export const auth = firebase.auth();
+
 export default db;
-
-
-
