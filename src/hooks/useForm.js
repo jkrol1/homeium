@@ -33,7 +33,7 @@ const useForm = (initialValues, validationFunctions, onSubmit) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (Object.keys(errors).length === 0 && !Object.values(touched).includes(false)) onSubmit();
+        if (Object.keys(errors).length === 0 && !Object.values(touched).includes(false)) onSubmit(values);
     }
 
     const handleKeyDown = (e) => {
@@ -46,6 +46,10 @@ const useForm = (initialValues, validationFunctions, onSubmit) => {
         };
     };
 
+    const resetSelectedFields = (fields) => {
+        fields.forEach(field => setValues({ ...values, [field]: '' }));
+    }
+
     return {
         values,
         errors,
@@ -53,7 +57,8 @@ const useForm = (initialValues, validationFunctions, onSubmit) => {
         handleChange,
         handleOnBlur,
         handleSubmit,
-        handleKeyDown
+        handleKeyDown,
+        resetSelectedFields
     };
 
 };
