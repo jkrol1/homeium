@@ -51,3 +51,10 @@ export const signOutFailure = (error) => ({
     payload: error
 });
 
+export const toggleShowSignInError = () => ({
+    type: userActionTypes.TOGGLE_SHOW_SIGN_IN_ERROR
+});
+
+export const toggleShowSignUpError = () => ({
+    type: userActionTypes.TOGGLE_SHOW_SIGN_UP_ERROR
+});
