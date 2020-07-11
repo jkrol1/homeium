@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import InputField from '../InputField/InputField';
 import CustomButton from '../CustomButton/CustomButton';
-import useForm from '../../hooks/useForm';
-import { signUpValidation } from '../../utils/validationFunctions';
+import Notification from '../Notification/Notification';
 import ValidationError from '../../components/ValidationError/ValidationError';
 import ValidationPassed from '../../components/ValidationPassed/ValidationPassed';
+import { signUpValidation } from '../../utils/validationFunctions';
+import {
+    signUpStart,
+    toggleShowSignUpError
+} from '../../redux/user/userActions';
+import {
+    selectAuthError,
+    selectShowSignUpError
+} from '../../redux/user/userSelectors';
+import useForm from '../../hooks/useForm';
 import './SignUp.scss';
 
 const SignUp = () => {
+
+    const dispatch = useDispatch();
+    const authError = useSelector(selectAuthError);
+    const showSignUpError = useSelector(selectShowSignUpError);
+
+    const onSubmit = async ({ email, password }) => dispatch(signUpStart({ email, password }));
+    const toggleNotification = () => dispatch(toggleShowSignUpError());
 
     const initialValues = {
         email: '',
@@ -22,8 +39,19 @@ const SignUp = () => {
         handleChange,
         handleSubmit,
         handleOnBlur,
-        handleKeyDown
-    } = useForm(initialValues, signUpValidation, () => console.log('Submitted'));
+        handleKeyDown,
+        resetSelectedFields
+    } = useForm(initialValues, signUpValidation, onSubmit);
+
+    // Reset selected fields on authorization error  
+
+    useEffect(() => {
+
+        if (showSignUpError) {
+            resetSelectedFields(['password', 'passwordConfirmation']);
+        };
+
+    }, [showSignUpError]);
 
     return (
         <form
@@ -98,6 +126,9 @@ const SignUp = () => {
                 content='Sign up'
                 modifier='parent-width-with-border'
             />
+            {showSignUpError
+                ? <Notification toggleNotification={toggleNotification} message={authError.message} />
+                : null}
         </form>);
 }
 
