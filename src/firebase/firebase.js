@@ -61,11 +61,10 @@ export const getUserProfile = async (userAuth, additionalData) => {
     // Create a user profile document if it has not already been created
 
     if (!snapshot.exists) {
-        const { displayName, email } = userAuth;
+        const { email } = userAuth;
         const createdAt = new Date();
         try {
             await userRef.set({
-                displayName,
                 email,
                 createdAt,
                 ...additionalData
@@ -91,7 +90,6 @@ export const getCurrentUser = () => {
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: 'select_account' });
-export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export const auth = firebase.auth();
 
