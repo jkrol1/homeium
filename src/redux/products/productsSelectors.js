@@ -24,9 +24,9 @@ export const selectProductCategory = categoryName => createSelector(
     categories => categories ? categories[categoryName] : null
 );
 
-export const selectIsProductsFetching = createSelector(
+export const selectAreProductsLoaded = createSelector(
     [selectProducts],
-    products => products.isFetching
+    products => Object.keys(products.categories).length > 0 ? true : false
 );
 
 export const selectCollectionItems = categoryName => createSelector(
