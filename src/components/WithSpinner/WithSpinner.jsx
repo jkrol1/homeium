@@ -1,16 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectIsProductsFetching } from '../../redux/products/productsSelectors';
+import { selectAreProductsLoaded } from '../../redux/products/productsSelectors';
 
 const WithSpinner = WrappedComponent => {
     const Spinner = ({ ...otherProps }) => {
-        const isLoading = useSelector(selectIsProductsFetching);
+        const isLoaded = useSelector(selectAreProductsLoaded);
 
-        return isLoading ? (
-            <div>Loading...</div>
-        ) : (
-                <WrappedComponent {...otherProps} />
-            );
+        return isLoaded
+            ? <WrappedComponent {...otherProps} />
+            : <div>Loading...</div>;
     };
     return Spinner;
 };

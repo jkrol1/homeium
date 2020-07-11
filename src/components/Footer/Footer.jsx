@@ -1,5 +1,5 @@
 import React from 'react';
-import { selectIsProductsFetching } from '../../redux/products/productsSelectors';
+import { selectAreProductsLoaded } from '../../redux/products/productsSelectors';
 import { useSelector } from 'react-redux';
 import SocialMedia from '../SocialMedia/SocialMedia';
 import CompanyInformation from '../CompanyInformation/CompanyInformation';
@@ -7,13 +7,15 @@ import CompanyInformation from '../CompanyInformation/CompanyInformation';
 import './Footer.scss';
 
 const Footer = () => {
-    const isLoading = useSelector(selectIsProductsFetching);
+    const isLoading = useSelector(selectAreProductsLoaded);
 
-    return (isLoading ? null :
-        <footer className='Footer'>
+    return (isLoading
+        ? <footer className='Footer'>
             <CompanyInformation />
             <SocialMedia />
-        </footer>);
+        </footer>
+        : null
+    );
 };
 
 export default Footer;
