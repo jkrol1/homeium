@@ -1,0 +1,15 @@
+.PaginationDot {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1rem;
+    border-radius: 50%;
+    background-color: white;
+
+    &:first-of-type {
+        margin-left: 0;
+    }
+
+    &--active-dot {
+        background-color: #3F51B5;
+    }
+}
