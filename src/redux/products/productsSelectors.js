@@ -8,7 +8,7 @@ export const selectProductCategories = createSelector(
     products => products.categories
 );
 
-export const selectAllProductsMap = createSelector(
+export const selectProductsMap = createSelector(
     [selectProductCategories],
     categories => {
         const productsMap = new Map();
@@ -51,6 +51,11 @@ export const selectFilteredProducts = (categoryName, { minPriceThreshold, maxPri
 );
 
 export const selectProduct = id => createSelector(
-    [selectAllProductsMap],
+    [selectProductsMap],
     productsMap => productsMap.get(id)
+);
+
+export const selectChosenProducts = ids => createSelector(
+    [selectProductsMap],
+    productsMap => ids.map(id => productsMap.get(id))
 );
