@@ -2,20 +2,22 @@ import { useState, useRef, useEffect } from 'react';
 
 const useIntersectAPI = ({ root = null, rootMargin, threshold = 0 }) => {
 
-    const [entry, setEntry] = useState({});
+    const [entry, setEntry] = useState({ currentEntry: {}, previousEntry: {} });
     const [node, setNode] = useState(null);
     const observer = useRef(null);
 
     useEffect(() => {
-        console.log('fired');
+
         // Make sure that previous observer is disconnected
 
         if (observer.current) observer.current.disconnect();
 
-        observer.current = new window.IntersectionObserver(([entry]) => {
-            setEntry(entry)
-
-            console.log(entry.intersectionRatio)
+        observer.current = new window.IntersectionObserver(([firstEntry]) => {
+            setEntry(entry => ({
+                ...entry,
+                previousEntry: entry.currentEntry,
+                currentEntry: firstEntry,
+            }));
         },
             {
                 root,
@@ -24,13 +26,11 @@ const useIntersectAPI = ({ root = null, rootMargin, threshold = 0 }) => {
             });
 
         const { current: currentObserver } = observer;
-
         if (node) currentObserver.observe(node);
 
         return () => currentObserver.disconnect();
 
     }, [node, root, rootMargin, threshold]);
-
     return { entry, setNode };
 };
 
