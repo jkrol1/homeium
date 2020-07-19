@@ -1,0 +1,17 @@
+$breakpoints: (xsmall: (min-width: 380px));
+
+$box-shadows: (main: 0.5rem 0.5rem 1rem rgb(214, 210, 210),
+    header: 0.2rem 0.2rem 1rem #cacaca);
+
+$fonts: (main:('roboto', 'Balsamiq Sans', 'arial'),
+    logo: ('SignPainter-HouseScript', 'Arial', 'Helvetica'),
+    numbers: ('Balsamiq Sans', 'roboto', 'arial'));
+
+$colors: (primary: white,
+    secondary: #3F51B5,
+    tertiary: black,
+    slider: rgba(255, 255, 255, 0.5));
+
+$borders: (normal: 0.1rem solid rgb(114, 101, 101),
+    light: 0.1rem rgba(0, 0, 0, 0.2) solid,
+    bold-color-secondary: 0.5rem solid map-get($colors, secondary));
