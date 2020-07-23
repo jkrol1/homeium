@@ -1,0 +1,8 @@
+@import '../../styles/styles.scss';
+
+.PanelHeading {
+    font-size: 4rem;
+    font-family: map-get($fonts, logo);
+    font-weight: normal;
+    text-align: center;
+}
