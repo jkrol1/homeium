@@ -2,7 +2,6 @@ import cartActionTypes from './cartActionTypes';
 import { addItem, removeItem, clearItem } from '../../utils/cartUtils.js';
 
 const INITIAL_STATE = {
-    showCartPanel: false,
     cartItems: {}
 };
 
@@ -29,12 +28,6 @@ const cartReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 cartItems: {}
-            };
-
-        case cartActionTypes.TOGGLE_CART_PANEL:
-            return {
-                ...state,
-                showCartPanel: !state.showCartPanel
             };
 
         default:

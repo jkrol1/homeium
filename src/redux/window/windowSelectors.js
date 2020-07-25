@@ -1,0 +1,13 @@
+import { createSelector } from 'reselect';
+
+const selectWindow = state => state.window;
+
+export const selectWindowSize = createSelector(
+    [selectWindow],
+    window => window.size
+);
+
+export const selectWindowWidth = createSelector(
+    [selectWindowSize],
+    size => size.width
+);
