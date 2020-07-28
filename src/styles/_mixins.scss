@@ -61,3 +61,34 @@
         column-gap: $column-gap;
     }
 }
+
+@mixin pseudo-element-styling($pseudo-element: 'before', $shift:(top:-1.15rem)) {
+    &:#{$pseudo-element} {
+
+        width: 100%;
+        content: '';
+        display: block;
+        position: absolute;
+        border-top: solid 0.3rem map-get($colors, secondary);
+        transform: scaleX(0);
+        transform-origin: 0% 100%;
+        transition: transform 200ms ease-in-out;
+
+        @each $property,
+        $value in $shift {
+            #{$property}: $value;
+        }
+
+        @content;
+    }
+}
+
+@mixin hover-effect($pseudo-element:'before', $shift:(top:-1.15rem)) {
+
+    @include pseudo-element-styling($pseudo-element, $shift);
+
+    &:hover:#{$pseudo-element} {
+        transform: scaleX(1);
+        transform-origin: 0% 100%;
+    }
+}
