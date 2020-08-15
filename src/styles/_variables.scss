@@ -1,24 +1,27 @@
 $breakpoints: (xsmall: (min-width: 400px),
-    small: (min-width: 640px),
-    medium: (min-width: 800px),
-    large:(min-width:1024px),
-    xlarge:(min-width:1240px));
+  small: (min-width: 640px),
+  medium: (min-width: 800px),
+  large:(min-width:1024px),
+  xlarge:(min-width:1240px));
 
 $box-shadows: (main: 0.5rem 0.5rem 1rem rgb(214, 210, 210),
-    header: 0.2rem 0.2rem 1rem #cacaca,
-    xlarge-mq-main: 0rem 0.5rem 1rem 0rem #d6d2d2);
+  header: 0.2rem 0.2rem 1rem #cacaca,
+  xlarge-mq-main: 0rem 0.5rem 1rem 0rem #d6d2d2);
 
 $fonts: (main:('roboto', 'Balsamiq Sans', 'arial'),
-    logo: ('SignPainter-HouseScript', 'Arial', 'Helvetica'),
-    numbers: ('Balsamiq Sans', 'roboto', 'arial'));
+  logo: ('SignPainter-HouseScript', 'Arial', 'Helvetica'),
+  numbers: ('Balsamiq Sans', 'roboto', 'arial'));
 
 $colors: (primary: white,
-    secondary: #3F51B5,
-    tertiary: black,
-    slider-arrows: rgba(255, 255, 255, 0.5),
-    background: rgb(242, 242, 242),
-    scrollbar: rgb(177, 176, 176));
+  secondary: #3F51B5,
+  tertiary: black,
+  slider-arrows: rgba(255, 255, 255, 0.5),
+  background: rgb(242, 242, 242),
+  scrollbar: rgb(177, 176, 176));
 
 $borders: (normal: 0.1rem solid rgb(114, 101, 101),
-    light: 0.1rem rgba(0, 0, 0, 0.2) solid,
-    bold-color-secondary: 0.5rem solid map-get($colors, secondary));
+  light: 0.1rem rgba(0, 0, 0, 0.2) solid,
+  bold-color-secondary: 0.5rem solid map-get($colors, secondary));
+
+$header-height: (small:8rem, regular:7rem);
+$footer-height:(small:12.3rem, regular: 8.3rem);
