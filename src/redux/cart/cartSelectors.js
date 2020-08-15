@@ -3,36 +3,36 @@ import { createSelector } from 'reselect';
 const selectCart = state => state.cart;
 
 export const selectCartItems = createSelector(
-    [selectCart],
-    cart => cart.cartItems
+  [selectCart],
+  cart => cart.cartItems
 );
 
 export const selectNumberOfCartItems = createSelector(
-    [selectCartItems],
-    cartItems => {
+  [selectCartItems],
+  cartItems => {
 
-        let numberOfCartItems = 0;
+    let numberOfCartItems = 0;
 
-        Object.keys(cartItems).forEach(cartItem => {
-            numberOfCartItems += cartItems[cartItem].quantity
-        })
+    Object.keys(cartItems).forEach(cartItem => {
+      numberOfCartItems += cartItems[cartItem].quantity
+    })
 
-        return numberOfCartItems;
-    }
+    return numberOfCartItems;
+  }
 );
 
 export const selectCartValue = createSelector(
-    [selectCartItems],
-    cartItems => {
+  [selectCartItems],
+  cartItems => {
 
-        let cartValue = 0;
+    let cartValue = 0;
 
-        Object.keys(cartItems).forEach(cartItem => {
-            cartValue += cartItems[cartItem].quantity * cartItems[cartItem].price
-        })
+    Object.keys(cartItems).forEach(cartItem => {
+      cartValue += cartItems[cartItem].quantity * cartItems[cartItem].price
+    })
 
-        return cartValue;
-    }
+    return cartValue;
+  }
 );
 
 

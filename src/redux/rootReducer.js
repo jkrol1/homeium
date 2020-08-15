@@ -5,22 +5,20 @@ import productsReducer from './products/productsReducer';
 import filtersMenuReducer from './filtersMenu/filtersMenuReducer';
 import cartReducer from './cart/cartReducer';
 import userReducer from './user/userReducer';
-import navigationReducer from './navigation/navigationReducer';
 import windowReducer from './window/windowReducer';
 
 const persistConfig = {
-    key: 'root',
-    storage,
-    whitelist: ['cart']
+  key: 'root',
+  storage,
+  whitelist: ['cart']
 };
 
 const rootReducer = combineReducers({
-    products: productsReducer,
-    filtersMenu: filtersMenuReducer,
-    cart: cartReducer,
-    user: userReducer,
-    navigation: navigationReducer,
-    window: windowReducer
+  products: productsReducer,
+  filtersMenu: filtersMenuReducer,
+  cart: cartReducer,
+  user: userReducer,
+  window: windowReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
