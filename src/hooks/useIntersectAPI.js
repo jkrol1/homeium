@@ -2,36 +2,37 @@ import { useState, useRef, useEffect } from 'react';
 
 const useIntersectAPI = ({ root = null, rootMargin, threshold = 0 }) => {
 
-    const [entry, setEntry] = useState({ currentEntry: {}, previousEntry: {} });
-    const [node, setNode] = useState(null);
-    const observer = useRef(null);
+  const [entry, setEntry] = useState({ currentEntry: {}, previousEntry: {} });
+  const [node, setNode] = useState(null);
+  const observer = useRef(null);
 
-    useEffect(() => {
 
-        // Make sure that previous observer is disconnected
+  useEffect(() => {
 
-        if (observer.current) observer.current.disconnect();
+    // Make sure that previous observer is disconnected
 
-        observer.current = new window.IntersectionObserver(([firstEntry]) => {
-            setEntry(entry => ({
-                ...entry,
-                previousEntry: entry.currentEntry,
-                currentEntry: firstEntry,
-            }));
-        },
-            {
-                root,
-                rootMargin,
-                threshold
-            });
+    if (observer.current) observer.current.disconnect();
 
-        const { current: currentObserver } = observer;
-        if (node) currentObserver.observe(node);
+    observer.current = new window.IntersectionObserver(([firstEntry]) => {
+      setEntry(entry => ({
+        ...entry,
+        previousEntry: entry.currentEntry,
+        currentEntry: firstEntry,
+      }));
+    },
+      {
+        root,
+        rootMargin,
+        threshold
+      });
 
-        return () => currentObserver.disconnect();
+    const { current: currentObserver } = observer;
+    if (node) currentObserver.observe(node);
 
-    }, [node, root, rootMargin, threshold]);
-    return { entry, setNode };
+    return () => currentObserver.disconnect();
+
+  }, [node, root, rootMargin, threshold]);
+  return { entry, setNode };
 };
 
 export default useIntersectAPI;

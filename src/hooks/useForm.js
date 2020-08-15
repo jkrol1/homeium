@@ -4,62 +4,71 @@ import { useState } from 'react';
 
 const createInitialTouchedObject = (initialValues) => {
 
-    let initialTouchedObject = {};
+  let initialTouchedObject = {};
 
-    Object.keys(initialValues).forEach(key => {
-        initialTouchedObject[key] = false;
-    });
+  Object.keys(initialValues).forEach(key => {
+    initialTouchedObject[key] = false;
+  });
 
-    return initialTouchedObject;
+  return initialTouchedObject;
 };
 
 
 const useForm = (initialValues, validationFunctions, onSubmit) => {
 
-    const [values, setValues] = useState(initialValues || {});
-    const [errors, setErrors] = useState({});
-    const [touched, setTouched] = useState(createInitialTouchedObject(initialValues) || {});
+  const [values, setValues] = useState(initialValues || {});
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState(createInitialTouchedObject(initialValues) || {});
 
-    const handleChange = (e) => {
-        e.persist();
-        setValues({ ...values, [e.target.name]: e.target.value });
-    }
+  const handleChange = (e) => {
+    e.persist();
+    setValues({ ...values, [e.target.name]: e.target.value });
+  }
 
-    const handleOnBlur = (e) => {
-        e.persist();
-        setTouched({ ...touched, [e.target.name]: true });
-        setErrors(validationFunctions[e.target.name](values, errors));
-    }
+  const handleOnBlur = (e) => {
+    e.persist();
+    setTouched({ ...touched, [e.target.name]: true });
+    setErrors(validationFunctions[e.target.name](values, errors));
+  }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (Object.keys(errors).length === 0 && !Object.values(touched).includes(false)) onSubmit(values);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (Object.keys(errors).length === 0 && !Object.values(touched).includes(false)) onSubmit(values);
+  }
 
-    const handleKeyDown = (e) => {
-        if (e.keyCode === 13) {
-            e.preventDefault();
-            e.target.blur();
-            const form = e.target.form;
-            const index = Array.prototype.indexOf.call(form, e.target);
-            form.elements[index + 1].focus();
-        };
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      e.target.blur();
+      const form = e.target.form;
+      const index = Array.prototype.indexOf.call(form, e.target);
+      form.elements[index + 1].focus();
     };
+  };
 
-    const resetSelectedFields = (fields) => {
-        fields.forEach(field => setValues({ ...values, [field]: '' }));
-    }
+  const resetSelectedFields = fields => {
 
-    return {
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleOnBlur,
-        handleSubmit,
-        handleKeyDown,
-        resetSelectedFields
-    };
+    let fieldsObj = { values, touched };
+
+    fields.forEach(field => {
+      fieldsObj.values[field] = '';
+      fieldsObj.touched[field] = false;
+    });
+
+    setValues({ ...values, ...fieldsObj.values });
+    setTouched({ ...touched, ...fieldsObj.touched });
+  };
+
+  return {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleOnBlur,
+    handleSubmit,
+    handleKeyDown,
+    resetSelectedFields
+  };
 
 };
 
