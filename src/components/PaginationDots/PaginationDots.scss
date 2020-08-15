@@ -1,9 +1,9 @@
+@import '../../styles/styles.scss';
+
 .PaginationDots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%);
+  @include flexbox;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%);
 }

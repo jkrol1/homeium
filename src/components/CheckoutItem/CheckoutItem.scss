@@ -1,50 +1,63 @@
+@import '../../styles/styles.scss';
+
 .CheckoutItem {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 14rem;
-    justify-items: center;
-    align-items: center;
-    box-shadow: 0.5rem 0.5rem 1rem rgb(214, 210, 210);
+  width: 100%;
+  @include grid($grid-template-columns: repeat(5, 1fr),
+    $grid-template-rows: 14rem);
+  box-shadow: 0.5rem 0.5rem 1rem rgb(214, 210, 210);
 
-    &__image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 50% 50%;
+  @include media-query(small) {
+    @include grid($grid-template-columns: 17.5rem 1.3fr 1fr 1fr 1fr,
+      $grid-template-rows: 19rem);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .name-color-container {
+    @include flexbox($flex-direction: column);
+    padding: 0.5rem;
+  }
+
+  &__color-option {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border-radius: 50%;
+
+    @include media-query(small) {
+      margin-top: 2rem;
     }
+  }
 
-    .name-color-container {
-        display: flex;
-        padding: 0.5rem;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+  .icon-container {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
 
+    @include media-query(small) {
+      width: 2rem;
+      height: 2rem;
     }
+  }
 
-    &__color-option {
-        height: 2.5rem;
-        width: 2.5rem;
-        padding: 0.5rem;
-        margin-top: 1rem;
-        border-radius: 50%;
-    }
+  .quantity-container {
+    @include flexbox;
+    padding: 0.5rem;
+  }
 
-    .icon-container {
-        width: 1.5rem;
-        height: 1.5rem;
-        cursor: pointer;
-    }
+  &__text-value {
+    font-size: 1.6rem;
+    padding: 0.2rem;
+    word-break: break-all;
 
-    .quantity-container {
-        display: flex;
-        padding: 0.5rem;
-        align-items: center;
+    @include media-query(small) {
+      font-size: 2rem;
     }
-
-    &__text-value {
-        font-size: 1.6rem;
-        padding: 0.2rem;
-        word-break: break-all;
-    }
+  }
 }

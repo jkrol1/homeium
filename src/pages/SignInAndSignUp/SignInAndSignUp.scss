@@ -1,12 +1,21 @@
-.SignInAndSignUpPage {
-    display: flex;
-    padding: 3rem 2rem;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+@import '../../styles/styles.scss';
 
-    &__google-info {
-        margin: 1.5rem 0;
-        font-size: 1.6rem;
-    }
+.SignInAndSignUpPage {
+  width: 100%;
+  max-width: 62rem;
+  margin: 3rem auto 0;
+  padding: 3.5rem 2rem;
+  @include flexbox($flex-direction:column, $justify-content: space-between);
+  opacity: 1;
+  transition: 200ms opacity ease-in-out;
+
+  @include media-query(xlarge) {
+    background-color: map-get($colors, primary);
+    box-shadow: map-get($box-shadows, xlarge-mq-main);
+  }
+
+  &__google-info {
+    margin: 1.5rem 0;
+    font-size: 1.6rem;
+  }
 }

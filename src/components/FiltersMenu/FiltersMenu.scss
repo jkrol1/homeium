@@ -1,49 +1,82 @@
+@import '../../styles/styles.scss';
+
 .FiltersMenu {
-    display: grid;
-    grid-auto-flow: column;
-    align-items: center;
+  margin: 7rem 0 0;
+  position: relative;
+
+  &__options {
+    width: 100%;
+    @include grid($grid-template-columns: 10rem 10rem 1fr, $column-gap: 2rem);
+
+    @include media-query(medium) {
+      column-gap: 3rem;
+    }
+
+    @include media-query(xlarge) {
+      column-gap: 4rem;
+    }
+  }
+
+  &__option {
+    height: 4rem;
+    @include flexbox($justify-content: flex-start);
+    justify-self: left;
     position: relative;
-    margin-top: 7rem;
+    cursor: pointer;
 
-    &__buttons {
-        display: flex;
-        justify-content: space-between;
-        width: 18rem;
+    @include pointer-none-on-children;
+
+    @include media-query(xlarge) {
+      @include hover-effect($shift:(left : -0.75rem, top:-1.15rem));
     }
 
-    &__layout-icon {
-        display: flex;
-        justify-self: right;
-        justify-content: center;
-        align-items: center;
-        height: 2.65rem;
-        width: 2.65rem;
-        margin-right: 0.5rem;
-        cursor: pointer;
+    &--layout {
+      height: 3.8rem;
+      width: 3.8rem;
+      @include flexbox($justify-content:center);
+      justify-self: right;
+
+      @include media-query(xlarge) {
+        @include hover-effect($shift:(left : 0rem));
+      }
+
     }
 
-    &__clear-filters {
-        position: absolute;
-        display: none;
-        top: 5rem;
-        left: 0;
-        cursor: pointer;
-
-        &--show {
-            display: block;
+    @include media-query(xlarge) {
+      &--selected {
+        @include pseudo-element-styling($shift:(left : -0.75rem, top:-1.15rem)) {
+          transform: scaleX(1);
         }
+      }
     }
+  }
 
-    &__clear-filters-text {
-        font-size: 1.5rem;
-    }
+  &__option-name {
+    font-size: 2rem;
+  }
 
-    .separation-line {
-        width: 30%;
-        position: absolute;
-        top: -4.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        border-bottom: 0.1rem rgba(0, 0, 0, .2) solid;
+  &__clear-filters {
+    position: absolute;
+    display: none;
+    top: 5rem;
+    left: 0;
+    cursor: pointer;
+
+    &--show {
+      display: block;
     }
+  }
+
+  &__clear-filters-text {
+    font-size: 1.5rem;
+  }
+
+  .separation-line {
+    width: 30%;
+    position: absolute;
+    top: -4.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 0.1rem rgba(0, 0, 0, .2) solid;
+  }
 }

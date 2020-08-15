@@ -7,15 +7,21 @@ import { ReactComponent as GoogleSVG } from '../../assets/google.svg';
 import './SignInAndSignUp.scss';
 
 const SignInAndSignUpPage = () => {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-
-    return (
-        <main className='SignInAndSignUpPage'>
-            <SignInSignUpChoice />
-            <span className='SignInAndSignUpPage__google-info'>or continue with Google</span>
-            <CustomButton content={<GoogleSVG />} modifier='google' onClick={() => dispatch(googleSignInStart())} />
-        </main>);
+  return (
+    <main className="SignInAndSignUpPage">
+      <SignInSignUpChoice />
+      <span className="SignInAndSignUpPage__google-info">
+        or continue with Google
+      </span>
+      <CustomButton
+        content={<GoogleSVG />}
+        modifier="google"
+        onClick={() => dispatch(googleSignInStart())}
+      />
+    </main>
+  );
 };
 
 export default SignInAndSignUpPage;

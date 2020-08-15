@@ -1,16 +1,32 @@
-.CartIcon {
-    width: 3.5rem;
-    position: relative;
-    top: 0.1rem;
-    cursor: pointer;
+@import '../../styles/styles.scss';
 
-    &__number-of-items {
-        position: absolute;
-        text-align: center;
-        font-size: 1.5rem;
-        width: 100%;
-        left: 0;
-        top: 38%;
-        font-family: "Balsamiq Sans";
+.CartIcon {
+  width: 3.5rem;
+  position: relative;
+  top: 0.1rem;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+
+  @include pointer-none-on-children;
+
+  @include media-query(xlarge) {
+
+    @include hover-effect;
+
+    &--selected {
+      @include pseudo-element-styling {
+        transform: scaleX(1);
+      }
     }
+  }
+
+  &__number-of-items {
+    width: 100%;
+    left: 0;
+    top: 38%;
+    position: absolute;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: map-get($fonts, numbers);
+  }
 }

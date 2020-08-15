@@ -1,14 +1,21 @@
 import React from 'react';
-import './CartIcon.scss';
 import { ReactComponent as ShoppingCartSVG } from '../../assets/shopping-cart.svg';
+import './CartIcon.scss';
 
-const CartIcon = ({ content, ...otherProps }) => {
-    return (
-        <div className='CartIcon' {...otherProps}>
-            <ShoppingCartSVG />
-            <span className='CartIcon__number-of-items'>{content}</span>
-        </div>
-    );
-};
+const CartIcon = ({
+  content,
+  cartPanelIconRef,
+  showCartPanel,
+  ...otherProps
+}) => (
+  <div
+    className={`CartIcon ${showCartPanel ? 'CartIcon--selected' : ''}`}
+    {...otherProps}
+    ref={cartPanelIconRef}
+  >
+    <ShoppingCartSVG />
+    <span className="CartIcon__number-of-items">{content}</span>
+  </div>
+);
 
 export default CartIcon;

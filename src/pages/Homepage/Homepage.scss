@@ -1,0 +1,12 @@
+@import '../../styles/styles.scss';
+
+.HomePage {
+  max-width: 124rem;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+
+  @include media-query(xlarge) {
+    margin: 3rem auto;
+
+  }
+}

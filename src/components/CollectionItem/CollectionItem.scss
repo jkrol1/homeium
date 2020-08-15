@@ -1,73 +1,122 @@
+@import '../../styles/styles.scss';
+
 .CollectionItem {
-    display: flex;
-    box-shadow: 0.5rem 0.5rem 1rem rgb(214, 210, 210);
-    flex-direction: column;
-    min-width: 14.5rem;
+  @include flexbox($flex-direction:column, $justify-content:unset,
+    $align-items:unset);
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  background-color: map-get($colors, primary);
+  box-shadow: 0.5rem 0.5rem 1rem rgb(214, 210, 210);
 
-    &--hide-box-shadow {
-        box-shadow: none;
+  @include media-query(xlarge) {
+    &:hover {
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  &--single-column {
+    @include grid($grid-template-rows: 45rem 25rem,
+      $justify-items:unset, $align-items:unset);
+
+    @include media-query(medium) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 45rem;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    min-height: 22rem;
+    height: 20rem;
+    object-fit: cover;
+    object-position: 50% 50%;
+
+    @include media-query(xsmall) {
+      min-height: 27rem;
     }
 
-    &--single-column {
-        display: grid;
-        max-width: 40rem;
-        grid-template-rows: auto minmax(22rem, auto);
+    @include media-query(xlarge) {
+      min-height: 29rem;
+    }
+  }
+
+  &--single-column &__image {
+    height: 45rem;
+  }
+
+  .item-container {
+    min-height: 9rem;
+    @include flexbox($flex-direction:column, $justify-content:space-evenly);
+    padding: 0 2rem;
+
+    @include media-query(medium) {
+      min-height: 10rem;
+      padding: 0 4.5rem;
     }
 
-    &__image {
-        width: 100%;
-        height: 20rem;
-        object-fit: cover;
-        object-position: 50% 50%;
+  }
 
-        &--single-column {
-            height: auto;
-        }
+  &__name {
+    font-size: 2.1rem;
+    text-align: center;
+
+    @include media-query(medium) {
+      font-size: 2.2rem;
     }
+  }
 
-    .item-container {
-        display: flex;
-        min-height: 8rem;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        padding: 0 1rem;
-    }
-
-    &__name {
-        font-size: 2.1rem;
-        text-align: center;
-    }
-
-    &__price {
-        width: 100%;
-        font-size: 1.7rem;
-        font-weight: normal;
-        text-align: center;
+  &--single-column &__name {
+    @include media-query(medium) {
+      font-size: 2.4rem;
 
     }
+  }
 
-    &__description {
-        font-size: 1.4rem;
-        text-align: justify;
+  &__price {
+    width: 100%;
+    font-size: 1.7rem;
+    font-weight: normal;
+    text-align: center;
+
+    @include media-query(medium) {
+      font-size: 2.2rem;
     }
+  }
 
-    &__colors-info {
-        font-size: 1.4rem;
+  &__description {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    text-align: left;
+
+    @include media-query(medium) {
+      font-size: 1.65rem;
+      line-height: 2.45rem;
     }
+  }
 
-    .colors-container {
-        width: 80%;
-        max-width: 15rem;
-        display: flex;
-        justify-content: space-evenly;
+  &__colors-info {
+    font-size: 1.4rem;
+
+    @include media-query(medium) {
+      font-size: 1.9rem;
     }
+  }
 
-    &__available-color {
-        height: 2rem;
-        width: 2rem;
-        border-radius: 50%;
-        display: inline-block;
+  .colors-container {
+    width: 80%;
+    max-width: 15rem;
+    @include flexbox($justify-content: space-evenly);
+  }
+
+  &__available-color {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: inline-block;
+
+    @include media-query(medium) {
+      width: 2.25rem;
+      height: 2.25rem;
     }
-
+  }
 }

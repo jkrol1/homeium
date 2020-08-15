@@ -1,23 +1,30 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { selectProduct } from '../../redux/products/productsSelectors';
-import CollectionItem from '../../components/CollectionItem/CollectionItem';
-import ProductVariations from '../../components/ProductVariations/ProductVariations';
-import { ReactComponent as ArrowSVG } from '../../assets/arrow.svg';
-import WithSpinner from '../../components/WithSpinner/WithSpinner';
+import ProductDetails from '../../components/ProductDetails/ProductDetails';
+import { ReactComponent as ArrowFilledLeftSVG } from '../../assets/arrow-filled-left.svg';
 import './Product.scss';
 
 const ProductPage = ({ match: { params } }) => {
-    const { productId } = params;
-    const product = useSelector(selectProduct(parseInt(productId)));
+  const { productId } = params;
+  const history = useHistory();
+  const product = useSelector(selectProduct)(parseInt(productId));
 
-    return (
-        <main className='ProductPage'>
-            <div className='icon-container'><ArrowSVG /></div>
-            <CollectionItem item={product} isSingleColumnLayout hideBoxShadow />
-            <ProductVariations product={product} />
-        </main>
-    );
+  const handleClick = () => {
+    history.push(`/${product.category}`);
+  };
+
+  return (
+    <main className="ProductPage">
+      <div className="icon-container" onClick={handleClick}>
+        <ArrowFilledLeftSVG />
+      </div>
+      <div className="product-details-container">
+        <ProductDetails product={product} />
+      </div>
+    </main>
+  );
 };
 
-export default WithSpinner(ProductPage);
+export default ProductPage;

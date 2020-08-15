@@ -1,9 +1,17 @@
-.CheckoutTotal {
-    align-self: flex-end;
-    margin-bottom: 3rem;
+@import '../../styles/styles.scss';
 
-    &__value {
-        font-size: 2.2rem;
-        font-weight: bold;
+.CheckoutTotal {
+  width: 100%;
+  max-width: 124rem;
+  margin: 0 auto 3rem;
+  text-align: right;
+
+  &__value {
+    font-size: 2.2rem;
+    font-weight: bold;
+
+    @include media-query(small) {
+      font-size: 2.5rem;
     }
+  }
 }

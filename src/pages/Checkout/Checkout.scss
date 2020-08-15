@@ -1,7 +1,15 @@
+@import '../../styles/styles';
+
 .CheckoutPage {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3rem 1rem;
+  @include min-height-pages;
+  padding: 3rem 1rem;
+  background-color: map-get($colors, primary);
+
+  .checkout-items-container {
+    @include flexbox($flex-direction: column, $justify-content: space-between);
+  }
+
+  .StripeCheckout {
+    width: 25rem;
+  }
 }

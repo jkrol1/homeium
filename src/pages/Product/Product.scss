@@ -1,8 +1,31 @@
+@import '../../styles/styles';
+
 .ProductPage {
-    .icon-container {
-        position: fixed;
-        height: 4rem;
-        width: 4rem;
-        margin: 2rem 0 2rem 0.75rem;
+  @include min-height-pages;
+  display: flex;
+
+  .product-details-container {
+    margin: 0 auto;
+  }
+
+  @include media-query(medium) {
+    background-color: map-get($colors, background);
+  }
+
+  .icon-container {
+    width: 4rem;
+    height: 4rem;
+    top: 10rem;
+    position: fixed;
+    left: 0.75rem;
+    cursor: pointer;
+
+    @include media-query(xsmall) {
+      top: 8.5rem;
     }
+
+    @include media-query(xlarge) {
+      left: calc((100vw - 124rem)/2);
+    }
+  }
 }

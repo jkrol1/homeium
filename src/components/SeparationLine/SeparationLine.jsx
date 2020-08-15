@@ -1,8 +1,8 @@
 import React from 'react';
 import './SeparationLine.scss';
 
-const SeparationLine = ({ styles }) => (
-    <span className='SeparationLine' style={styles}></span>
+const SeparationLine = ({ style }) => (
+  <span className="SeparationLine" style={style}></span>
 );
 
 export default SeparationLine;

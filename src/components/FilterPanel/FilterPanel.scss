@@ -1,79 +1,97 @@
+@import '../../styles/styles.scss';
+
 .FilterPanel {
-    display: flex;
-    width: 100vw;
-    height: 35rem;
-    position: absolute;
-    top: 5rem;
-    left: -1rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: white;
-    border-top: 0.5px solid black;
-    border-bottom: 0.5px solid black;
-    z-index: 1;
-    touch-action: none;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  @include flexbox($flex-direction: column, $justify-content: space-evenly);
+  background-color: white;
+  z-index: 2;
 
-    &__close-panel-symbol {
-        position: absolute;
-        top: 2rem;
-        right: 1.5rem;
-        font-size: 2.5rem;
+  @include media-query(xlarge) {
+    border: map-get($borders, light);
+  }
 
-    }
+  &__filter {
+    height: 100%;
+    max-height: 60rem;
+    width: 100%;
+    @include flexbox($flex-direction: column, $justify-content: space-evenly);
 
-    &__filter-type {
-        font-size: 2rem;
-        font-weight: normal;
-    }
+  }
 
-    &__price-filter-form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  &__filter-type {
+    font-size: 2rem;
+    font-weight: normal;
+  }
 
-    &__range-number-inputs {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        margin: 4rem 0;
-    }
+  &__price-filter-form {
+    @include flexbox($flex-direction: column);
+  }
 
-    &__dash {
-        margin: 0 2rem;
-        font-size: 3rem;
-        font-weight: lighter;
-    }
+  &__range-number-inputs {
+    width: 100%;
+    margin: 4rem 0;
+    @include flexbox;
+  }
+
+  &__dash {
+    margin: 0 2rem;
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+
+  .InputField {
+    width: calc((72.5% - 4.83rem) / 2);
+  }
+
+  .CustomButton {
+    width: 72.5%;
+  }
 }
 
 .input-range {
-    width: 70%;
+  width: 72.5%;
 
-    &__track {
-        height: 0.5rem
-    }
+  &__track {
+    height: 0.5rem
+  }
 
-    &__slider {
-        height: 2rem;
-        width: 2rem;
-        margin-top: -1.25rem;
-    }
+  &__slider-container:nth-of-type(1) &__slider,
+  &__slider-container:nth-of-type(1) &__label--value {
+    transform: translateX(-50%);
+  }
 
-    &__label--min,
-    &__label--max {
-        display: none;
-    }
+  &__slider {
+    height: 2rem;
+    width: 2rem;
+    margin-top: -1.25rem;
+  }
 
-    &__label--value {
-        top: -3.2rem;
-        font-size: 1.2rem;
-        color: black;
-    }
+  &__label--min,
+  &__label--max {
+    display: none;
+  }
 
-    &__label-container {
-        left: -15%;
-    }
+  &__label--value {
+    top: -3.2rem;
+    font-size: 1.2rem;
+    color: black;
+  }
+
+  &__label-container {
+    left: -15%;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
 }

@@ -1,39 +1,61 @@
+@import '../../styles/styles.scss';
+
 .CollectionPreview {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 100%;
-    padding: 1rem 1rem 0 1rem;
-    margin-top: 2.5rem;
+  width: 95%;
+  @include flexbox($flex-wrap: wrap);
+  padding: 1rem 1rem 0;
+  margin: 2.5rem 0 6.5rem;
 
-    &__heading {
-        width: 50%;
-        text-align: left;
-        font-size: 2rem;
-        font-weight: normal;
+  &__heading {
+    width: 50%;
+    flex-grow: 1;
+    font-size: 2rem;
+    text-align: left;
+    font-weight: normal;
+
+    @include media-query(xsmall) {
+      font-size: 2.05rem;
     }
 
-    &__link {
-        width: 50%;
-        text-align: right;
-        font-size: 1.8rem;
-        font-weight: bold;
+    @include media-query(medium) {
+      font-size: 2.15rem;
+    }
+  }
+
+  &__link {
+    @include flexbox($justify-content: flex-end);
+    position: relative;
+    font-size: 2.1rem;
+    text-align: right;
+    font-weight: bold;
+    cursor: pointer;
+    @include hover-effect;
+
+    @include media-query(xsmall) {
+      font-size: 2.2rem;
     }
 
-    &__items {
-        display: grid;
-        height: 30rem;
-        margin: 2.5rem 0;
-        overflow-x: scroll;
-        grid-template-columns: repeat(10, 14.5rem);
-        grid-template-rows: 28rem;
-        column-gap: 2rem;
-        -ms-overflow-style: none;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
-
+    @include media-query(medium) {
+      font-size: 2.35rem;
     }
+  }
 
+  &__items {
+    min-height: 30rem;
+    @include grid($grid-template-columns: repeat(10, 18rem),
+      $column-gap: 2rem);
+    padding: 3rem 0;
+    overflow-x: scroll;
+
+    @include media-query(xlarge) {
+      @include grid($grid-template-columns: repeat(10, 22rem),
+        $column-gap: 3rem);
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    &:hover {
+      background-color: map-get($colors, secondary);
+    }
+  }
 }

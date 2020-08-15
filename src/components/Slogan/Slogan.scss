@@ -1,14 +1,37 @@
-.Slogan {
-    height: 10rem;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
+@import '../../styles/styles';
 
-    &__contents {
-        text-align: center;
-        font-size: 2.5rem;
-        font-weight: lighter;
-        font-family: roboto;
+.Slogan {
+  height: calc(30vh - 8rem);
+  min-height: 10rem;
+  position: relative;
+  @include flexbox;
+  background-color: map-get($colors, primary);
+
+  @include media-query(xlarge) {
+    box-shadow: map-get($box-shadows, xlarge-mq-main);
+    height: calc(30vh - 12.5rem);
+    max-height: 20rem;
+    padding: 1rem;
+  }
+
+  &__contents {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: lighter;
+    font-family: roboto;
+
+    @include media-query(xsmall) {
+      font-size: 3.2rem;
     }
+
+    @include media-query(small) {
+      font-size: 3.5rem;
+    }
+
+    @include media-query(xlarge) {
+      font-size: 3.7rem;
+    }
+
+
+  }
 }

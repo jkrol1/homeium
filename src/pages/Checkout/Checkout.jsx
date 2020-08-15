@@ -1,34 +1,32 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { clearCart } from '../../redux/cart/cartActions';
+import { useSelector } from 'react-redux';
 import { selectNumberOfCartItems } from '../../redux/cart/cartSelectors';
 import CheckoutTable from '../../components/CheckoutTable/CheckoutTable';
 import CheckoutTotal from '../../components/CheckoutTotal/CheckoutTotal';
-import CustomButton from '../../components/CustomButton/CustomButton';
-import WithSpinner from '../../components/WithSpinner/WithSpinner';
+import StripeCheckoutButton from '../../components/StripeCheckoutButton/StripeCheckoutButton';
 import EmptyCartInfo from '../../components/EmptyCartInfo/EmptyCartInfo';
-
+import CheckoutWarning from '../../components/CheckoutWarning/CheckoutWarning';
+import { selectCartValue } from '../../redux/cart/cartSelectors';
 import './Checkout.scss';
 
 const CheckoutPage = () => {
+  const numberOfCartItems = useSelector(selectNumberOfCartItems);
+  const cartValue = useSelector(selectCartValue);
 
-    const dispatch = useDispatch();
-    const numberOfCartItems = useSelector(selectNumberOfCartItems);
-
-    return (
-        <main className='CheckoutPage'>
-            {numberOfCartItems > 0 ? (
-                <>
-                    <CheckoutTable />
-                    <CheckoutTotal />
-                    <CustomButton onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(clearCart());
-                    }}
-                        content='Buy'
-                        modifier='large-with-border' />
-                </>) : <EmptyCartInfo text='There are no items in your shopping cart' />}
-        </main>);
+  return (
+    <main className="CheckoutPage">
+      {numberOfCartItems > 0 ? (
+        <div className="checkout-items-container">
+          <CheckoutTable />
+          <CheckoutTotal cartValue={cartValue} />
+          <StripeCheckoutButton cartValue={cartValue} />
+          <CheckoutWarning />
+        </div>
+      ) : (
+        <EmptyCartInfo text="There are no items in your shopping cart" />
+      )}
+    </main>
+  );
 };
 
-export default WithSpinner(CheckoutPage);
+export default CheckoutPage;

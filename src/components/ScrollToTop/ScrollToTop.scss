@@ -1,0 +1,15 @@
+@import '../../styles/styles';
+
+.ScrollToTop {
+  width: 4.5rem;
+  height: 4.5rem;
+  position: fixed;
+  bottom: 5rem;
+  right: 2rem;
+  z-index: 2;
+  cursor: pointer;
+
+  @include media-query(xlarge) {
+    right: calc((100vw - 118rem)/2);
+  }
+}

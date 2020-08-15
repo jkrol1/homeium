@@ -1,0 +1,19 @@
+@import '../../styles/styles.scss';
+
+.FullScreenPanelContainer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  @include media-query(xlarge) {
+    width: 40rem;
+    height: 55rem;
+    position: absolute;
+    top: 4.6rem;
+    right: 0;
+    left: unset;
+  }
+}

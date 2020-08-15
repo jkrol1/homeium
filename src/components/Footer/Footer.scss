@@ -1,6 +1,11 @@
+@import '../../styles/styles.scss';
+
 .Footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
+  height: map-get($footer-height, small);
+  @include flexbox;
+  background-color: map-get($colors, tertiary);
+
+  @include media-query(xsmall) {
+    height: map-get($footer-height, regular);
+  }
 }

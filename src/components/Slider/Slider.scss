@@ -1,31 +1,42 @@
 @import '../../styles/styles';
 
 .Slider {
-    width: 100vw;
-    height: 70vh;
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  height: 70vh;
+  max-height: 90rem;
+  min-height: 40rem;
+  position: relative;
+  overflow: hidden;
 
-    &__content {
-        height: 100%;
-        display: flex;
+  @include media-query(medium) {
+    min-height: 55rem;
+  }
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    @include flexbox;
+  }
+
+  .icon-container {
+    width: 4rem;
+    height: 4rem;
+    @include flexbox;
+    position: absolute;
+    bottom: 50%;
+    left: 2%;
+    border-radius: 50%;
+    background-color: map-get($colors, slider-arrows);
+    cursor: pointer;
+
+    &:hover {
+      background-color: map-get($colors, background);
     }
 
-    .icon-container {
-        width: 4rem;
-        height: 4rem;
-        @include flexbox;
-        position: absolute;
-        bottom: 50%;
-        left: 2%;
-        border-radius: 50%;
-        background-color: map-get($colors, slider);
-        cursor: pointer;
-
-        &--arrow-right {
-            left: 98%;
-            transform: translateX(-100%);
-        }
-
+    &--arrow-right {
+      left: 98%;
+      transform: translateX(-100%);
     }
+
+  }
 }

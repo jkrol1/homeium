@@ -1,19 +1,27 @@
+@import '../../styles/styles';
+
 .Header {
+  position: relative;
+  height: map-get($header-height, small);
 
-    position: relative;
-    height: 6rem;
+  @include media-query(xsmall) {
+    height: map-get($header-height, regular);
+  }
 
-}
-
-.fixed-container {
-    display: flex;
-    position: fixed;
-    background-color: white;
+  .fixed-container {
     width: 100%;
-    height: 6rem;
+    height: 8rem;
+    position: fixed;
+    @include flexbox;
     font-size: 1.7rem;
-    padding: 0.5rem;
+    padding: 1rem;
     align-items: center;
     z-index: 2;
-    box-shadow: 0.2rem 0.2rem 1rem #cacaca;
+    box-shadow: map-get($box-shadows, header);
+    background-color: map-get($colors, primary);
+
+    @include media-query(xsmall) {
+      height: 7rem;
+    }
+  }
 }

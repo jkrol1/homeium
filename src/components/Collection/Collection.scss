@@ -1,18 +1,47 @@
+@import '../../styles/styles.scss';
+
 .Collection {
-    display: grid;
+  width: 100%;
+
+  &__collection-items {
+    max-width: 45rem;
+    @include grid($grid-template-columns:1fr, $row-gap:5rem);
     position: relative;
-    justify-items: center;
-    grid-template-columns: 1fr;
-    row-gap: 3rem;
-    margin: 4.5rem 0 1rem;
+    margin: 4.5rem auto 1rem;
+    transition: 200ms opacity ease-in-out;
+
+    @include media-query(medium) {
+      width: 80%;
+      max-width: 80rem;
+    }
 
     &--multiple-columns {
-        grid-template-columns: repeat(auto-fit, minmax(14.5rem, 2fr));
-        column-gap: 1rem;
+      width: 100%;
+      max-width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(14.5rem, 2fr));
+      column-gap: 1rem;
+
+      @include media-query(xsmall) {
+        grid-template-columns: repeat(auto-fit, minmax(15.5rem, 2fr));
+        column-gap: 1.5rem;
+      }
+
+      @include media-query(small) {
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 2fr));
+      }
+
+      @include media-query(xlarge) {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 2fr));
+        column-gap: 3rem;
+      }
     }
 
-    &--filters-window-on {
+    @include media-query(xlarge) {
+      &--filters-window-on {
         opacity: 0.5;
         pointer-events: none;
+      }
     }
+
+  }
 }

@@ -1,62 +1,87 @@
-@font-face {
-    font-family: 'SignPainter-HouseScript';
-    src: url(../../assets/SignPainter-HouseScript.ttf);
-}
+@import '../../styles//styles';
 
 .ProductCategory {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  position: relative;
+  @include flexbox($flex-wrap: wrap);
+  font-weight: 1;
+  margin-top: 8rem;
+  background-color: map-get($colors, primary);
+
+  @include media-query(xlarge) {
+    box-shadow: map-get($box-shadows, xlarge-mq-main);
+  }
+
+  &__background {
+    width: 100%;
+    height: 35rem;
+    background-size: cover;
+    background-position: center;
+
+    @include media-query(xsmall) {
+      height: 45rem;
+    }
+
+    @include media-query(small) {
+      height: 60rem;
+    }
+
+    @include media-query(large) {
+      height: 70rem;
+    }
+
+  }
+
+  .name-container {
+    width: 13rem;
+    height: 5rem;
+    position: absolute;
+    @include flexbox;
+    top: -2.5rem;
+    left: 5%;
+    background-color: map-get($colors, primary);
+    border: map-get($borders, normal);
+    border-radius: 0.2rem;
+
+    @include media-query(medium) {
+      width: 17rem;
+      height: 7rem;
+      top: -3.5rem;
+    }
+
+    @include media-query(xlarge) {
+      border: none;
+    }
+  }
+
+  &__name {
+    font-family: map-get($fonts, logo);
+    font-size: 3.5rem;
     font-weight: 1;
-    margin-top: 5rem;
 
-    &__background {
-        height: 35rem;
-        width: 100%;
-        background-size: cover;
-        background-position: center;
+    @include media-query(medium) {
+      font-size: 4.2rem;
+    }
+  }
+
+  .description-container {
+    position: relative;
+    width: 85%;
+    margin-top: 4rem;
+    padding: 3rem;
+    box-shadow: map-get($box-shadows, main);
+  }
+
+  &__description {
+    font-size: 2rem;
+    text-align: center;
+    line-height: 3rem;
+
+    @include media-query(xsmall) {
+      font-size: 2.05rem;
     }
 
-    .name-container {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 5rem;
-        width: 13rem;
-        top: -2.5rem;
-        left: 5%;
-        background-color: #ffffff;
-        border: 0.1rem solid rgb(114, 101, 101);
-        border-radius: 0.2rem;
+    @include media-query(medium) {
+      font-size: 2.1rem;
     }
-
-    &__name {
-        font-family: SignPainter-HouseScript;
-        font-size: 3.5rem;
-        font-weight: 1;
-    }
-
-    .description-container {
-        margin-top: 3.5rem;
-        width: 85%;
-        padding: 1.5rem;
-        box-shadow: 0.5rem 0.5rem 1rem rgb(214, 210, 210);
-    }
-
-    &__description {
-        font-size: 1.8rem;
-        font-weight: bold;
-        text-align: center;
-        line-height: 3rem;
-    }
-
-    .separation-line {
-        width: 30%;
-        position: absolute;
-        top: -5rem;
-        margin: 0 auto;
-        border-bottom: 0.1rem rgba(0, 0, 0, .2) solid;
-    }
+  }
 }

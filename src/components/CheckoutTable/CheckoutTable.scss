@@ -1,20 +1,31 @@
+@import '../../styles/styles.scss';
+
 .CheckoutTable {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 2rem;
-    margin-bottom: 3rem;
+  width: 100%;
+  max-width: 124rem;
+  @include grid($grid-template-columns: 1fr, $row-gap:2.5rem,
+    $align-items:unset,
+    $justify-items:unset);
+  margin: 0 auto 3rem;
 
-    &__row-column-headings {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        justify-items: center;
-        align-items: center;
-    }
+  @include media-query(small) {
+    row-gap: 4rem;
+  }
 
-    &__column-heading {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 1.6rem;
+  &__row-column-headings {
+    @include grid($grid-template-columns: repeat(5, 1fr));
+
+    @include media-query(small) {
+      grid-template-columns: 17.5rem 1.3fr 1fr 1fr 1fr;
     }
+  }
+
+  &__column-heading {
+    @include flexbox($flex-direction:column);
+    font-size: 1.6rem;
+
+    @include media-query(small) {
+      font-size: 1.8rem;
+    }
+  }
 }

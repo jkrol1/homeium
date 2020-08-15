@@ -1,15 +1,28 @@
-@font-face {
-    font-family: 'SignPainter-HouseScript';
-    src: url(../../assets/SignPainter-HouseScript.ttf);
-}
+@import '../../styles/styles.scss';
 
 .CategoryPage {
-    margin: 3rem 1rem 0 1rem;
+  max-width: 124rem;
+  @include min-height-pages(8);
+  margin: 4rem 1rem 4rem;
+  transition: opacity 200ms ease-in-out;
 
-    &__heading {
-        font-size: 3.5rem;
-        text-align: center;
-        font-weight: normal;
-        font-family: 'SignPainter-HouseScript';
+  @include media-query(xlarge) {
+    @include min-height-pages(6);
+    margin: 3rem auto;
+    padding: 4rem;
+    background-color: map-get($colors, primary);
+    box-shadow: map-get($box-shadows, xlarge-mq-main);
+  }
+
+  &__heading {
+    font-size: 3.5rem;
+    text-align: center;
+    font-weight: normal;
+    font-family: 'SignPainter-HouseScript';
+    position: relative;
+
+    @include media-query(medium) {
+      font-size: 4rem;
     }
+  }
 }

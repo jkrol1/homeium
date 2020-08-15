@@ -5,12 +5,11 @@ import { ReactComponent as FacebookSVG } from '../../assets/facebook.svg';
 import './SocialMedia.scss';
 
 const SocialMedia = () => (
-    <section className='SocialMedia'>
-        <TwitterSVG className='SocialMedia__icon' />
-        <InstagramSVG className='SocialMedia__icon' />
-        <FacebookSVG className='SocialMedia__icon' />
-    </section>
+  <section className="SocialMedia">
+    <TwitterSVG className="SocialMedia__icon" />
+    <InstagramSVG className="SocialMedia__icon" />
+    <FacebookSVG className="SocialMedia__icon" />
+  </section>
 );
 
 export default SocialMedia;
-

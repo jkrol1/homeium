@@ -1,0 +1,16 @@
+@import '../../styles/styles.scss';
+
+.Cart {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  @include flexbox($flex-direction:column,
+    $justify-content:space-between);
+  padding: 2.5rem 4rem 4rem;
+  background-color: map-get($colors, primary);
+  overflow-y: auto;
+
+  @include media-query(xlarge) {
+    border: map-get($borders, light);
+  }
+}

@@ -1,9 +1,8 @@
-.ProductVariations {
-    display: flex;
-    flex-direction: column;
-    margin: 1.5rem 1rem 5rem;
+@import '../../styles/styles.scss';
 
-    .CustomButton {
-        align-self: center;
-    }
+.ProductVariations {
+  width: 100%;
+  margin: 3rem 0 3rem;
+  padding: 0 2rem 0;
+  @include flexbox($flex-direction:column);
 }
