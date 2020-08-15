@@ -1,0 +1,40 @@
+@import '../../styles/styles.scss';
+
+.ContactPage {
+  width: 100%;
+  @include min-height-pages;
+  padding: 7rem 2rem;
+  background-color: map-get($colors, primary);
+
+  &__heading {
+    margin-bottom: 5rem;
+    font-size: 2.2rem;
+    line-height: 3rem;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  &__social-medium {
+    margin-bottom: 2rem;
+    @include flexbox($justify-content:flex-start);
+
+    @include media-query(small) {
+      justify-content: center;
+    }
+  }
+
+  .icon-container {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  &__social-medium-id {
+    width: 1rem;
+    margin-left: 2rem;
+    font-size: 1.6rem;
+
+    @include media-query(small) {
+      font-size: 2rem;
+    }
+  }
+}
