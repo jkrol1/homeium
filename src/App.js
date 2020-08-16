@@ -34,7 +34,6 @@ const App = () => {
       dispatch(getWindowSize({
         height: window.innerHeight,
         width: window.innerWidth,
-        documentElementHeight: document.documentElement.offsetHeight
       }))
     };
 

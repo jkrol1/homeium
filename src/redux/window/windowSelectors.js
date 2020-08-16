@@ -16,8 +16,3 @@ export const selectWindowHeight = createSelector(
   [selectWindowSize],
   size => size.height
 );
-
-export const selectDocumentHeight = createSelector(
-  [selectWindowSize],
-  size => size.documentElementHeight
-);
