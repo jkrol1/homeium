@@ -19,7 +19,10 @@ const ProductQuantity = ({ quantity, setQuantity, maxQuantity }) => {
           placeholder="1"
           onChange={(e) => setQuantity(e.target.value)}
           onBlur={(e) => {
-            if (parseInt(e.target.value) < 1) {
+            if (
+              parseInt(e.target.value) < 1 ||
+              isNaN(parseInt(e.target.value))
+            ) {
               setQuantity(1);
             } else if (parseInt(e.target.value) > maxQuantity) {
               setQuantity(maxQuantity);
