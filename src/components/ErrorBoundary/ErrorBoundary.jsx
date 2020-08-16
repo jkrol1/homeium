@@ -35,7 +35,6 @@ class ErrorBoundary extends React.Component {
             alt="Page not found"
           />
           <CustomButton
-            modifier="large-with-border"
             content={<p>Go back to the main page</p>}
             onClick={this.redirectToMainPage}
           />

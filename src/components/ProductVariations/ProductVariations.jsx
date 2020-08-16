@@ -32,7 +32,6 @@ const ProductVariations = ({
             addItem({ id, name, imageUrl, price, selectedColor, quantity }),
           );
         }}
-        modifier="large-with-border"
         content={<p>Add to cart</p>}
       />
     </section>
