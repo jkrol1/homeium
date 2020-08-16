@@ -120,7 +120,6 @@ const FilterPanel = React.forwardRef(
                     }
                   }
                 }}
-                modifier="tight"
                 value={numericMinInput}
               />
 
@@ -159,13 +158,11 @@ const FilterPanel = React.forwardRef(
                     }
                   }
                 }}
-                modifier="tight"
                 value={numericMaxInput}
               />
             </div>
             <CustomButton
               content={'Filter'}
-              modifier="large-with-border"
               type="submit"
             />
           </form>
