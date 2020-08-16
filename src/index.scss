@@ -7,12 +7,6 @@
 #root {
   @include media-query(xlarge) {
     background-color: map-get($colors, background);
-    //background-color: #eee2dc;
-    //background-color: #f3e0dc;
-    //background-color: #86b3d1;
-    //background-color: #FEF9C7;
-    //background-color: #464866;
-    //background-image: url(https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
   }
 
 }
