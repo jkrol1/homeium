@@ -1,3 +1,16 @@
+## Homeium
+
+E-commerce website. 
+
+## Technologies used
+
+Frontend: JS ES6+, React, Redux, Sass, CSS3, HTML5.
+Backend: Firebase. I've used firebase authentication and firestore as database.
+
+I've also implemented stripe-checkout component for payment process.
+
+##
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
