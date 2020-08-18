@@ -1,6 +1,6 @@
 ## Homeium
 
-E-commerce website.<br/>
+E-commerce web app.<br/>
 
 Link: https://homeium.web.app/
 
