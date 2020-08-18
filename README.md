@@ -4,7 +4,7 @@ E-commerce website.
 
 ## Technologies used
 
-Frontend: JS ES6+, React, Redux, Sass, CSS3, HTML5.
+Frontend: JS ES6+, React, Redux, Sass, CSS3, HTML5.<br/>
 Backend: Firebase. I've used firebase authentication and firestore as database.
 
 I've also implemented stripe-checkout component for payment process.
